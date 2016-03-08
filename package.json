@@ -1,0 +1,29 @@
+{
+  "name": "us-digital-registry",
+  "version": "1.0.0",
+  "description": "U.S. Digital Registry Dashboard Concept",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICFI/us-digital-registry.git"
+  },
+  "author": "Jeff Heinrichs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICFI/us-digital-registry/issues"
+  },
+  "homepage": "https://github.com/ICFI/us-digital-registry#readme",
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7"
+  }
+}

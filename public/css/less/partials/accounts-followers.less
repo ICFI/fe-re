@@ -1,0 +1,26 @@
+.list-group-accounts {
+    border: 0;
+
+    .list-group-item {
+        border: 0;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:hover {
+            background-color: transparent;
+            color: @brand-primary;
+        }
+    }
+
+    .progress {
+        .box-shadow(none);
+        margin-bottom: 0;
+    }
+}
+
+.list-item-name {
+    &:extend(.text-overflow);
+}
+.list-item-followers {
+    text-align: right;
+}

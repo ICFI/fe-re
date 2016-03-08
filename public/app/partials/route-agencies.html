@@ -1,0 +1,45 @@
+    <div id="site-head">
+        <header class="container">
+            <h2 class="sr-only">Filter Results</h2>
+            <form action="">
+                <div class="col-md-6">
+                    <label for="filter-agency" class="sr-only">Select Agency</label>
+                    <select name="filter-agency" id="filter-agency" class="form-control"></select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="filter-platform" class="sr-only">Select Social Media Platform</label>
+                    <select name="filter-platform" id="filter-platform" class="form-control"></select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="filter-keyword" class="sr-only">Filter by Keyword</label>
+                    <input type="text" id="filter-keyword" class="form-control" placeholder="Filter by Keyword" />
+                </div>
+            </form>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="col-md-8  col-xs-12">
+            <agency-summary></agency-summary>
+
+            <agencies-accounts></agencies-accounts>
+
+            <section class="panel panel-about-dashboard">
+                <header class="panel-heading">
+                    <h2 class="panel-title">About This site</h2>
+                </header>
+
+                <div class="panel-body">
+                    <p>stuff about what this is doing. stuff about icf even. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat. </p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="col-md-4 col-xs-12">
+            <accounts-followers></accounts-followers>
+
+            <latest-post></latest-post>
+        </aside>
+    </div>

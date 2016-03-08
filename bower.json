@@ -1,0 +1,29 @@
+{
+  "name": "us-digital-registry",
+  "description": "U.S. Digital Registry Dashboard Concept",
+  "main": "server.js",
+  "authors": [
+    "Jeff Heinrichs"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "https://www.buildwithicfi.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1",
+    "angular": "^1.5.0",
+    "d3": "^3.5.0",
+    "c3": "^0.4.10",
+    "bootstrap": "^3.3.6",
+    "angular-aria": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}

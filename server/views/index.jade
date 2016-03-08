@@ -1,0 +1,68 @@
+doctype
+html(lang="en-us")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="x-ua-compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(name="description" content="")
+
+        link(rel='stylesheet', href='/bower_components/c3/c3.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+        link(href='https://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css')
+        link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic' rel='stylesheet' type='text/css')
+
+        link(rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png")
+        link(rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png")
+        link(rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png")
+        link(rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png")
+        link(rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png")
+        link(rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png")
+        link(rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png")
+        link(rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png")
+        link(rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png")
+        link(rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32")
+        link(rel="icon" type="image/png" href="/favicon/android-chrome-192x192.png" sizes="192x192")
+        link(rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96")
+        link(rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16")
+        link(rel="manifest" href="/favicon/manifest.json")
+        meta(name="msapplication-TileColor" content="#da532c")
+        meta(name="msapplication-TileImage" content="/favicon/mstile-144x144.png")
+        meta(name="theme-color" content="#ffffff")
+
+        title US Digital Registry
+
+    body(data-ng-app='USDigitalRegistryApp')
+        nav.navbar.navbar-default
+            div.container
+                div.navbar-header
+                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav")
+                        span.sr-only Toggle Navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    h1.navbar-brand
+                        a(href="#/agencies") The U.S. Government on Social Media
+
+                div(class="collapse navbar-collapse" id="site-nav")
+                    ul.nav.navbar.navbar-right
+                        li
+                            a(href="#/about-this-site") About This site
+
+        main
+            div(data-ng-view="data-ng-view")
+
+        script(src='/bower_components/jquery/dist/jquery.min.js')
+
+        script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+
+        script(src='/bower_components/angular/angular.min.js')
+        script(src='/bower_components/angular-route/angular-route.min.js')
+        script(src='/bower_components/angular-aria/angular-aria.min.js')
+        script(src='/bower_components/angular-sanitize/angular-sanitize.min.js')
+
+        script(src='/bower_components/d3/d3.js')
+        script(src='/bower_components/c3/c3.min.js')
+        script(src='/app/app.js')
+        script(src='/app/config.js')
+        script(src='/app/controllers.js')
+        script(src='/app/directives.js')

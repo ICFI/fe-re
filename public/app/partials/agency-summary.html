@@ -1,0 +1,19 @@
+<section class="panel panel-social-media">
+    <header class="panel-heading sr-only">
+        <h2 class="panel-title">Aggregate Summary</h2>
+    </header>
+
+    <div class="panel-body row">
+        <div>
+            <h3 class="col-sm-12 col-xs-12 text-center primary-metric"><span class="qty qty-total">{{totalFollowers | number:0}}</span> Total Followers</h3>
+        </div>
+
+        <div class="col-sm-6 col-xs-12 text-center secondary-metric">
+            <h3><span class="qty">{{socialMediaAccounts | number:0}}</span> Social Media Accounts</h3>
+        </div>
+
+        <div class="col-sm-6 col-xs-12 text-center secondary-metric">
+            <h3><span class="qty">{{postsPastDay | number:0}}</span> Posts in the Last 24 Hours</h3>
+        </div>
+    </div>
+</section>
