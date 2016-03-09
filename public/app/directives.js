@@ -104,7 +104,25 @@
             return {
                 restrict    : 'E',
                 replace     : true,
-                templateUrl : '/app/partials/latest-post.html'
+                templateUrl : '/app/partials/latest-post.html',
+                link        : function (scope, element) {
+                    scope.$watch('accounts', function () {
+                        var twitterWidget = $('<a></a>').addClass("twitter-timeline")
+                            .text('Tweets by ' + scope.accounts[0].account)
+                            .attr({
+                                'href': "https://twitter.com/" + scope.accounts[0].account,
+                                'data-height': "300",
+                                'data-chrome': "nofooter noheader",
+                                'data-widget-id': "707588338312548353"
+                        });
+
+                        element.find('#timeline')
+                            .html('')
+                            .append(twitterWidget);
+
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                    });
+                }
             }
         };
 

@@ -50,6 +50,8 @@
                     _.each(accounts, function (account, index) {
                         $scope.accounts[index].organization = account.organization;
                         $scope.accounts[index].followers = account.followers;
+                        $scope.accounts[index].account = account.account;
+                        $scope.accounts[index].service_url = account.service_url;
                     });
                 },
 
