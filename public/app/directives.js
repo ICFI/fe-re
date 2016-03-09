@@ -26,22 +26,28 @@
         },
 
         chartDonut = function chartDonut () {
+            function getColumns(data) {
+                var columns = [];
+
+                _.each(data, function (agency) {
+                    columns.push([agency.name, agency.social_media_count]);
+                })
+
+                return columns;
+            };
+
             return {
                 restrict    : 'E',
                 replace     : true,
                 templateUrl : '/app/partials/chart-donut.html',
                 link        : function (scope, element) {
-                    var chartWidth = 220,
+                    var chartWidth = 480,
 
                         colors = ['#205493','#cd2026','#fdb81e','#02bfe7','#2e8540'],
 
-                        columns = [
-                            ['one one', 1302],
-                            ['two', 578],
-                            ['three', 302],
-                            ['four', 112],
-                            ['five', 23]
-                        ],
+                        columns = getColumns(scope.agencies),
+
+                        title = _.sumBy(scope.agencies, function (agency) { return agency.social_media_count; }),
 
                         chartElement = element.find('#accounts').get(0);
 
@@ -61,7 +67,7 @@
                                 show: true
                             },
                             donut: {
-                                title: "Iris Petal Width"
+                                title: title
                             }
                         });
                 }

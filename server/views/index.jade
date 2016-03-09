@@ -32,27 +32,61 @@ html(lang="en-us")
         title US Digital Registry
 
     body(data-ng-app='USDigitalRegistryApp')
-        nav.navbar.navbar-default
-            div.container
-                div.navbar-header
-                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav")
-                        span.sr-only Toggle Navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    h1.navbar-brand
-                        a(href="#/agencies") The U.S. Government on Social Media
+        div(data-ng-controller='Dashboard')
+            nav.navbar.navbar-default
+                div.container
+                    div.navbar-header
+                        button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-nav")
+                            span.sr-only Toggle Navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        h1.navbar-brand
+                            a(href="#/agencies") The U.S. Government on Social Media
 
-                div(class="collapse navbar-collapse" id="site-nav")
-                    ul.nav.navbar.navbar-right
-                        li
-                            a(href="#/about-this-site") About This site
+                    div(class="collapse navbar-collapse" id="site-nav")
+                        ul.nav.navbar.navbar-right
+                            li
+                                a(data-ng-click="scrollToAbout()") About This site
 
-        main
-            div(data-ng-view="data-ng-view")
+            main
+                div(id="site-head")
+                    header(class="container")
+                        h2(class="sr-only") Filter Results
+                        form(name="filter")
+                            div(class="col-md-6")
+                                label(for="filter-agency" class="sr-only") Select Agency
+                                select(name="filter-agency" id="filter-agency" data-ng-change="updateFilters()" data-ng-model="filterAgency" class="form-control" data-ng-options="agency.name for agency in agencyFilters")
+
+                            div(class="col-md-3")
+                                label(for="filter-platform" class="sr-only") Select Social Media Platform
+                                select(name="filter-platform" id="filter-platform" data-ng-model="filterPlatform" class="form-control" data-ng-options="platform.service_display_name disable when platform.disable for platform in platformFilters")
+
+                            div(class="col-md-3")
+                                label(for="filter-tag" class="sr-only") Filter by Keyword
+                                select(name="filter-tag" id="filter-tag" data-ng-model="filterTag" class="form-control" data-ng-options="tag.tag_text for tag in tagFilters")
+
+                div(class="container")
+                    div(class="col-md-8 col-xs-12")
+                        agency-summary
+
+                        agencies-accounts
+
+                        section(class="panel panel-about-dashboard")
+                            header(class="panel-heading")
+                                h2(class="panel-title") About This site
+
+                            div(class="panel-body")
+                                p stuff about what this is doing. stuff about icf even. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat.
+
+                    aside(class="col-md-4 col-xs-12")
+                        accounts-followers
+
+                        latest-post
+
 
         script(src='/bower_components/jquery/dist/jquery.min.js')
-
+        script(src='/bower_components/lodash/dist/lodash.min.js')
         script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
 
         script(src='/bower_components/angular/angular.min.js')
@@ -64,5 +98,6 @@ html(lang="en-us")
         script(src='/bower_components/c3/c3.min.js')
         script(src='/app/app.js')
         script(src='/app/config.js')
+        script(src='/app/factories.js')
         script(src='/app/controllers.js')
         script(src='/app/directives.js')

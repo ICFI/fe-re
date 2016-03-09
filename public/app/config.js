@@ -36,6 +36,5 @@
 
     angular.module('USDigitalRegistryApp')
         .constant('DATA_PATHS', DATA_PATHS)
-        .constant('MESSAGES', MESSAGES)
-        .config(['$routeProvider', routeConfig]);
+        .constant('MESSAGES', MESSAGES);
 }());
