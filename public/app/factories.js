@@ -305,7 +305,8 @@
                             totalFollowers       : 0,
                             socialMediaAccounts  : 0,
                             postsPastDay         : 0
-                        };
+                        },
+                        agenciesAccounts;
 
                     deferred = $q.defer();
 
@@ -314,13 +315,15 @@
                         summary.socialMediaAccounts = _.find(agencyList, {'id': params.agencyFilter}).social_media_count;
                         summary.totalFollowers = _.sumBy(accounts[params.agencyFilter.toString()], function (account) {
                             return account.followers;
-                        });;
+                        });
+                        agenciesAccounts = _.find(agencyList, {'id': params.agencyFilter});
                     } else {
                         accountFollowers.results = getTopFiveAccounts();
                         summary.socialMediaAccounts = _.sumBy(agencyList, function (agency) {
                             return agency.social_media_count;
                         });
                         summary.totalFollowers = getTotalFollowers();
+                        agenciesAccounts = agencyList;
                     }
 
                     accountFollowers.meta.maxFollowers = _.maxBy(accountFollowers.results, function (account) {
@@ -333,7 +336,8 @@
 
                     deferred.resolve({
                         accountFollowers: accountFollowers,
-                        summary: summary
+                        summary: summary,
+                        agenciesAccounts: agenciesAccounts
                     });
 
                     return response;

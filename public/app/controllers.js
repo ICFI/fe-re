@@ -5,7 +5,9 @@
 
     var Dashboard = function ($scope, agencies, platforms, tags, dashboardData) {
             var scrollToAbout = function () {
-                    console.log('scrollToAbout');
+                    $('html, body').clearQueue().stop().animate({
+                        'scrollTop': $('#about-site').offset().top
+                    }, 200);
                 },
                 agencyDefault = [{
                     "id": 0,
@@ -57,10 +59,15 @@
                     $scope.postsPastDay         = data.summary.postsPastDay;
                     setAccounts(data.accountFollowers.results);
                     $scope.maxFollowers         = data.accountFollowers.meta.maxFollowers;
+
+                    if (_.isArray(data.agenciesAccounts)) {
+                        $scope.agenciesAccounts  = data.agenciesAccounts;
+                    } else {
+                        $scope.agenciesAccounts  = [data.agenciesAccounts];
+                    }
                 },
 
                 updateFilters = function () {
-                    console.log('updateFilters');
                     dashboardData.get({agencyFilter: $scope.filterAgency.id}).then(function (data) {
                         setDashboardData(data);
                     });
@@ -74,6 +81,7 @@
                 updateFilters();
 
                 $scope.agencies         = data;
+                $scope.agenciesAccounts = data;
             });
 
             platforms.get().then(function (data) {

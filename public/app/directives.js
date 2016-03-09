@@ -36,6 +36,14 @@
                 return columns;
             };
 
+            function getColumnIds(columns) {
+                var columnIds = [];
+
+                _.each(columns, function (column) {
+                    columnIds.push(column[0]);
+                });
+            }
+
             return {
                 restrict    : 'E',
                 replace     : true,
@@ -45,9 +53,9 @@
 
                         colors = ['#205493','#cd2026','#fdb81e','#02bfe7','#2e8540'],
 
-                        columns = getColumns(scope.agencies),
+                        columns = getColumns(scope.agenciesAccounts),
 
-                        title = _.sumBy(scope.agencies, function (agency) { return agency.social_media_count; }),
+                        title = _.sumBy(scope.agenciesAccounts, function (agency) { return agency.social_media_count; }),
 
                         chartElement = element.find('#accounts').get(0);
 
@@ -68,6 +76,24 @@
                             },
                             donut: {
                                 title: title
+                            }
+                        });
+
+                        scope.$watch('agenciesAccounts', function (newValue, oldValue) {
+                            if (!_.isEqual(newValue, oldValue)) {
+                                chartGenerate.unload({
+                                    ids: getColumnIds(columns)
+                                });
+
+                                columns = getColumns(newValue);
+
+                                title = _.sumBy(scope.agenciesAccounts, function (agency) { return agency.social_media_count; });
+
+                                chartGenerate.load({
+                                    columns: columns
+                                });
+
+                                $('.c3-chart-arcs-title', $(chartGenerate.element)).text(title);
                             }
                         });
                 }
