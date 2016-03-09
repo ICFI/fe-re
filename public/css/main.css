@@ -4036,6 +4036,10 @@ button.list-group-item-danger.active:focus {
 .navbar-default .navbar-brand a {
   color: #323a45;
 }
+#site-nav .navbar-right {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
 #site-head {
   background-color: #d1d1d1;
   padding: 20px 0;

@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="{{account.followers}}" aria-valuemin="0" aria-valuemax="{{maxFollowers}}" data-ng-style="{'width': '{{account.followers / maxFollowers * 100}}%'}">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{account.followers}}" aria-valuemin="0" aria-valuemax="{{maxFollowers}}" data-ng-style="{'width': (account.followers / maxFollowers * 100)+'%'}">
                         <span class="sr-only">{{account.followers}}</span>
                     </div>
                 </div>

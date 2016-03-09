@@ -21,12 +21,41 @@
                     "id": 0,
                     "tag_text": "Filter by Tag"
                 }],
+                accountsDefault = [
+                    {
+                        'organization': '',
+                        'followers': 0
+                    },
+                    {
+                        'organization': '',
+                        'followers': 0
+                    },
+                    {
+                        'organization': '',
+                        'followers': 0
+                    },
+                    {
+                        'organization': '',
+                        'followers': 0
+                    },
+                    {
+                        'organization': '',
+                        'followers': 0
+                    }
+                ],
+
+                setAccounts = function (accounts) {
+                    _.each(accounts, function (account, index) {
+                        $scope.accounts[index].organization = account.organization;
+                        $scope.accounts[index].followers = account.followers;
+                    });
+                },
 
                 setDashboardData = function (data) {
                     $scope.totalFollowers       = data.summary.totalFollowers;
                     $scope.socialMediaAccounts  = data.summary.socialMediaAccounts;
                     $scope.postsPastDay         = data.summary.postsPastDay;
-                    $scope.accounts             = data.accountFollowers.results;
+                    setAccounts(data.accountFollowers.results);
                     $scope.maxFollowers         = data.accountFollowers.meta.maxFollowers;
                 },
 
@@ -36,6 +65,8 @@
                         setDashboardData(data);
                     });
                 };
+
+            $scope.accounts = accountsDefault;
 
             agencies.get().then(function (data) {
                 $scope.agencyFilters    = agencyDefault.concat(data);
