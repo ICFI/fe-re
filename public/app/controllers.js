@@ -88,7 +88,7 @@
 
             platforms.get().then(function (data) {
                 $scope.platformFilters  = platformDefault.concat(data);
-                $scope.filterPlatform     = $scope.platformFilters[0];
+                $scope.filterPlatform     = _.find($scope.platformFilters, {"service_key": 'twitter'});
             });
 
             tags.get().then(function (data) {

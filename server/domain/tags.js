@@ -22,23 +22,23 @@ function init () {
         //     stmt.finalize();
         // });
 
-        knex.schema.createTable('users', function (table) {
+        knex.schema.createTableIfNotExists('tags', function (table) {
           table.integer('id').primary().unique();
           table.string('tag_text');
+        }).then(function () {
+            return knex.schema.createTableIfNotExists('accounts_tags', function (table) {
+              table.integer('tag_id').primary();
+              table.integer('account_id');
+            }); 
+        }).then(function () {
+          return knex('tags').insert([
+                {id: 141, tag_text: 'children'},
+                {id: 3854, tag_text: 'tobacco'},
+                {id: 3105, tag_text: 'emergency'}
+            ]);  
+        }).then(function () {
+            resolve();
         });
-
-        knex.schema.createTable('accounts_tags', function (table) {
-          table.integer('tag_id').primary();
-          table.integer('account_id');
-        });
-
-        knex('users').insert([
-            {id: 141, tag_text: 'children'},
-            {id: 3854, tag_text: 'tobacco'},
-            {id: 3105, tag_text: 'emergency'}
-        ])
-
-        resolve();
     });
 }
 

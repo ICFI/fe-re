@@ -10,7 +10,7 @@
         </header>
 
         <div class="list-group list-group-accounts">
-            <a href="#" class="list-group-item" data-ng-repeat="account in accounts track by $index">
+            <a data-ng-href="{{account.service_url}}" class="list-group-item" data-ng-repeat="account in accounts track by $index">
                 <div class="row">
                     <div class="list-item-name col-xs-8">{{account.organization}}</div>
                     <div class="list-item-followers col-xs-4">{{account.followers | number:0}}</div>
