@@ -49,7 +49,7 @@
                 replace     : true,
                 templateUrl : '/app/partials/chart-donut.html',
                 link        : function (scope, element) {
-                    var chartWidth = 480,
+                    var chartWidth = 320,
 
                         colors = ['#205493','#cd2026','#fdb81e','#02bfe7','#2e8540'],
 

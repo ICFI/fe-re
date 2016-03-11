@@ -29,7 +29,7 @@ html(lang="en-us")
         meta(name="msapplication-TileImage" content="/favicon/mstile-144x144.png")
         meta(name="theme-color" content="#ffffff")
 
-        title US Digital Registry
+        title Proof of Concept Using the U.S. Digital Registry
 
     body(data-ng-app='USDigitalRegistryApp')
         div(data-ng-controller='Dashboard')
@@ -47,22 +47,22 @@ html(lang="en-us")
                     div(class="collapse navbar-collapse" id="site-nav")
                         ul.nav.navbar.navbar-right
                             li
-                                a(data-ng-click="scrollToAbout()") About this site
+                                button(type="button" class="btn btn-link" data-ng-click="scrollToAbout()") About this site
 
             main
                 div(id="site-head")
                     header(class="container")
                         h2(class="sr-only") Filter Results
                         form(name="filter")
-                            div(class="col-md-6")
+                            div(class="col-md-6 form-group")
                                 label(for="filter-agency" class="sr-only") Select Agency
                                 select(name="filter-agency" id="filter-agency" data-ng-change="updateFilters()" data-ng-model="filterAgency" class="form-control" data-ng-options="agency.name for agency in agencyFilters")
 
-                            div(class="col-md-3")
+                            div(class="col-md-3 form-group")
                                 label(for="filter-platform" class="sr-only") Select Social Media Platform
                                 select(name="filter-platform" id="filter-platform" data-ng-model="filterPlatform" class="form-control" data-ng-options="platform.service_display_name disable when platform.disable for platform in platformFilters")
 
-                            div(class="col-md-3")
+                            div(class="col-md-3 form-group")
                                 label(for="filter-tag" class="sr-only") Filter by Keyword
                                 select(name="filter-tag" id="filter-tag" data-ng-model="filterTag" class="form-control" data-ng-options="tag.tag_text for tag in tagFilters")
 
@@ -72,18 +72,29 @@ html(lang="en-us")
 
                         agencies-accounts
 
-                        section(class="panel panel-about-dashboard" id="about-site")
-                            header(class="panel-heading")
-                                h2(class="panel-title") About this site
-
-                            div(class="panel-body")
-                                p stuff about what this is doing. stuff about icf even. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  luctus eros eu fringilla vestibulum. Nam a lacinia nunc. Vestibulum dui  diam, ullamcorper nec tristique faucibus, rhoncus vitae mi. Ut feugiat  eget magna at feugiat.
 
                     aside(class="col-md-4 col-xs-12")
                         accounts-followers
 
                         latest-post
 
+                div(class="container")
+                    section(class="panel panel-about-dashboard" id="about-site")
+                        header(class="panel-heading")
+                            h2(class="panel-title") About this site
+
+                        div(class="panel-body col-xs-8")
+                            p This is a proof of concept.
+
+                            p The <a href="http://www.digitalgov.gov/services/u-s-digital-registry/">U.S. Digital Registry</a> can be used to create a powerful dashboard that showcases how U.S. federal government agencies are using social media to reach and engage citizens.
+
+                            p This prototype combines Twitter data with U.S. Digital Registry data. Future versions could draw data from many different social media platforms, including Facebook, Instagram, and more.
+
+                            p <a href="https://public.tableau.com/profile/icf.information.insights#!/vizhome/GSASocialDigitalRegistryv2/FederalSocialMediaRegistry">View a treemap of the U.S. Digital Registry on Tableau.</a>
+
+                        div(class="col-xs-4 text-right")
+                            a(href="https://www.buildwithicfi.com/")
+                                img(src="/img/ICF-logo.png" width="80" height="80" alt="ICF International")
 
         script(src='/bower_components/jquery/dist/jquery.min.js')
         script(src='/bower_components/lodash/dist/lodash.min.js')

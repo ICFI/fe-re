@@ -21,6 +21,14 @@
 .list-item-name {
     &:extend(.text-overflow);
 }
-.list-item-followers {
+.list-item-followers,
+#account-followers {
     text-align: right;
+}
+
+@media (max-width: @screen-lg) {
+  .list-heading {
+    font-size: @font-size-h5;
+    font-weight: bold;
+  }
 }

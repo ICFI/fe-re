@@ -4036,6 +4036,16 @@ button.list-group-item-danger.active:focus {
 .navbar-default .navbar-brand a {
   color: #323a45;
 }
+@media (max-width: 1160px) {
+  .navbar-default .navbar-brand {
+    font-size: 27px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar-default .navbar-brand {
+    font-size: 18px;
+  }
+}
 #site-nav .navbar-right {
   margin-top: 20px;
   margin-bottom: 0;
@@ -4075,7 +4085,7 @@ h5 {
   background-color: transparent;
 }
 #accounts {
-  width: 480px;
+  width: 320px;
   margin: 0 auto;
 }
 .list-group-accounts {
@@ -4095,8 +4105,15 @@ h5 {
   box-shadow: none;
   margin-bottom: 0;
 }
-.list-item-followers {
+.list-item-followers,
+#account-followers {
   text-align: right;
+}
+@media (max-width: 1160px) {
+  .list-heading {
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
 .qty {
   font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
@@ -4114,4 +4131,10 @@ h5 {
 .secondary-metric h3 {
   border: 1px solid #d1d1d1;
   padding: 20px;
+}
+@media (max-width: 1160px) {
+  .qty-total {
+    font-size: 83px;
+    letter-spacing: -5px;
+  }
 }
