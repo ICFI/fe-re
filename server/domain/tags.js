@@ -1,12 +1,12 @@
 var path        = require('path'),
     Promise     = require('bluebird'),
-    dbFile      = path.join(__dirname, '../../data/db/registry.db'),
-    knex        = require('knex')({
-                        client: 'sqlite3',
-                        connection: {
-                            filename: dbFile
-                        }
-                    });
+    dbFile      = path.join(__dirname, '../../data/db/registry.db');
+    // knex        = require('knex')({
+    //                     client: 'sqlite3',
+    //                     connection: {
+    //                         filename: dbFile
+    //                     }
+    //                 });
 
 function init () {
     return new Promise(function (resolve) {
@@ -22,23 +22,24 @@ function init () {
         //     stmt.finalize();
         // });
 
-        knex.schema.createTableIfNotExists('tags', function (table) {
-          table.integer('id').primary().unique();
-          table.string('tag_text');
-        }).then(function () {
-            return knex.schema.createTableIfNotExists('accounts_tags', function (table) {
-              table.integer('tag_id').primary();
-              table.integer('account_id');
-            }); 
-        }).then(function () {
-          return knex('tags').insert([
-                {id: 141, tag_text: 'children'},
-                {id: 3854, tag_text: 'tobacco'},
-                {id: 3105, tag_text: 'emergency'}
-            ]);  
-        }).then(function () {
-            resolve();
-        });
+        // knex.schema.createTableIfNotExists('tags', function (table) {
+        //   table.integer('id').primary().unique();
+        //   table.string('tag_text');
+        // }).then(function () {
+        //     return knex.schema.createTableIfNotExists('accounts_tags', function (table) {
+        //       table.integer('tag_id').primary();
+        //       table.integer('account_id');
+        //     }); 
+        // }).then(function () {
+        //   return knex('tags').insert([
+        //         {id: 141, tag_text: 'children'},
+        //         {id: 3854, tag_text: 'tobacco'},
+        //         {id: 3105, tag_text: 'emergency'}
+        //     ]);  
+        // }).then(function () {
+        // });
+
+        resolve();
     });
 }
 
